@@ -24,7 +24,15 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserDto login(UserDto dto) {
-        return null;
+
+        UserDto userDto = userDao.login(dto.getUserEmail());
+
+        if( userDto != null && userDto.getUserPassword().equals(dto.getUserPassword())) {
+            userDto.setUserPassword(null); // 비밀번호 제거 (노출 위험 있으므로)
+            return userDto;
+        }else {
+            return null;
+        }
     }
 
 

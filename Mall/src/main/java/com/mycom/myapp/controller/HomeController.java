@@ -14,7 +14,6 @@ public class HomeController {
 
     @GetMapping(value = "/login")
     private String login() {
-        System.out.println("동작");
         return "/login.html";
     }
 
