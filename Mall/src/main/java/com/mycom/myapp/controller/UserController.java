@@ -39,7 +39,7 @@ public class UserController {
         UserDto userDto = userService.login(dto);
         Map<String, String> map = new HashMap<>();
         if( userDto != null ) {
-            session.setAttribute("userDto", userDto);
+            session.setAttribute("userDto", userDto); //로그인 성공 시 사용자 정보 저장한 객체 담음
             map.put("userName", userDto.getUserName());
             map.put("userProfileImageUrl", userDto.getUserProfileImageUrl());
             map.put("result", "success");
